@@ -28,6 +28,11 @@ const Hero = () => {
           <Button 
             size="lg" 
             className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6"
+            onClick={() => {
+              document.getElementById('contact')?.scrollIntoView({ 
+                behavior: 'smooth' 
+              });
+            }}
           >
             Get Free Quote
           </Button>
