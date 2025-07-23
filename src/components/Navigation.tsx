@@ -35,7 +35,14 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button 
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              onClick={() => {
+                document.getElementById('contact')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
+            >
               Get Quote
             </Button>
           </div>
@@ -63,7 +70,15 @@ const Navigation = () => {
                   {item.label}
                 </a>
               ))}
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-fit">
+              <Button 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 w-fit"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  document.getElementById('contact')?.scrollIntoView({ 
+                    behavior: 'smooth' 
+                  });
+                }}
+              >
                 Get Quote
               </Button>
             </div>
