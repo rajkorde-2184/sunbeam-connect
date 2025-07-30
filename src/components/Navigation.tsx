@@ -9,6 +9,7 @@ const Navigation = () => {
     { label: "Home", href: "#home" },
     { label: "Products", href: "#products" },
     { label: "Benefits", href: "#benefits" },
+    { label: "Partners", href: "/collaborators" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -31,6 +32,14 @@ const Navigation = () => {
                 key={item.label}
                 href={item.href}
                 className="text-foreground hover:text-primary transition-colors font-medium"
+                onClick={(e) => {
+                  if (item.href.startsWith('#')) {
+                    e.preventDefault();
+                    document.getElementById(item.href.slice(1))?.scrollIntoView({ 
+                      behavior: 'smooth' 
+                    });
+                  }
+                }}
               >
                 {item.label}
               </a>
@@ -65,7 +74,15 @@ const Navigation = () => {
                   key={item.label}
                   href={item.href}
                   className="text-foreground hover:text-primary transition-colors font-medium"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    if (item.href.startsWith('#')) {
+                      e.preventDefault();
+                      document.getElementById(item.href.slice(1))?.scrollIntoView({ 
+                        behavior: 'smooth' 
+                      });
+                    }
+                  }}
                 >
                   {item.label}
                 </a>
