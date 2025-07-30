@@ -1,14 +1,11 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-solar.jpg";
-
 const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(${heroImage})`
+    }}>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/60" />
       </div>
       
@@ -25,28 +22,16 @@ const Hero = () => {
           Save money, reduce your carbon footprint, and join the renewable energy revolution.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            size="lg" 
-            className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6"
-            onClick={() => {
-              document.getElementById('contact')?.scrollIntoView({ 
-                behavior: 'smooth' 
-              });
-            }}
-          >
+          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6" onClick={() => {
+          document.getElementById('contact')?.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }}>
             Get Free Quote
           </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="bg-white/10 text-white border-white/30 hover:bg-white/20 text-lg px-8 py-6"
-          >
-            Learn More
-          </Button>
+          
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;

@@ -3,10 +3,8 @@ import Hero from "@/components/Hero";
 import ProductShowcase from "@/components/ProductShowcase";
 import Benefits from "@/components/Benefits";
 import ContactForm from "@/components/ContactForm";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navigation />
       <main>
         <section id="home">
@@ -28,7 +26,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-semibold mb-4">SolarTech Solutions</h3>
+              <h3 className="font-semibold mb-4">voltex Solution</h3>
               <p className="text-sm text-primary-foreground/80">
                 Leading the solar revolution with innovative, efficient, and sustainable energy solutions.
               </p>
@@ -46,8 +44,8 @@ const Index = () => {
               <h4 className="font-medium mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-primary-foreground/80">
                 <li>About Us</li>
-                <li>Our Team</li>
-                <li>Careers</li>
+                
+                
                 <li>Contact</li>
               </ul>
             </div>
@@ -62,14 +60,10 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
-            <p className="text-sm text-primary-foreground/60">
-              © 2024 SolarTech Solutions. All rights reserved.
-            </p>
+            <p className="text-sm text-primary-foreground/60">© 2021 voltex solutions. All rights reserved.</p>
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
