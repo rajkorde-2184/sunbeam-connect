@@ -94,9 +94,7 @@ const Collaborators = () => {
             </div>
           </div>
           <div className="border-t border-border mt-8 pt-8 text-center">
-            <p className="text-muted-foreground">
-              © 2024 SolarTech Solutions. All rights reserved.
-            </p>
+            <p className="text-muted-foreground">© 2021 voltex solutions. All rights reserved.</p>
           </div>
         </div>
       </footer>
