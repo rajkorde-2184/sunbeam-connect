@@ -36,19 +36,21 @@ const Navigation = () => {
             {navItems.map(item => {
               if (item.href.startsWith('#')) {
                 return (
-                  <a 
+                  <Link 
                     key={item.label} 
-                    href={item.href} 
+                    to={`/${item.href}`}
                     className="text-foreground hover:text-primary transition-colors font-medium" 
                     onClick={e => {
-                      e.preventDefault();
-                      document.getElementById(item.href.slice(1))?.scrollIntoView({
-                        behavior: 'smooth'
-                      });
+                      if (window.location.pathname === '/') {
+                        e.preventDefault();
+                        document.getElementById(item.href.slice(1))?.scrollIntoView({
+                          behavior: 'smooth'
+                        });
+                      }
                     }}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 );
               } else {
                 return (
@@ -63,10 +65,14 @@ const Navigation = () => {
               }
             })}
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => {
-            document.getElementById('contact')?.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }}>
+              if (window.location.pathname === '/') {
+                document.getElementById('contact')?.scrollIntoView({
+                  behavior: 'smooth'
+                });
+              } else {
+                window.location.href = '/#contact';
+              }
+            }}>
               Get Quote
             </Button>
           </div>
@@ -83,20 +89,22 @@ const Navigation = () => {
               {navItems.map(item => {
                 if (item.href.startsWith('#')) {
                   return (
-                    <a 
+                    <Link 
                       key={item.label} 
-                      href={item.href} 
+                      to={`/${item.href}`}
                       className="text-foreground hover:text-primary transition-colors font-medium" 
                       onClick={e => {
                         setIsMenuOpen(false);
-                        e.preventDefault();
-                        document.getElementById(item.href.slice(1))?.scrollIntoView({
-                          behavior: 'smooth'
-                        });
+                        if (window.location.pathname === '/') {
+                          e.preventDefault();
+                          document.getElementById(item.href.slice(1))?.scrollIntoView({
+                            behavior: 'smooth'
+                          });
+                        }
                       }}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   );
                 } else {
                   return (
@@ -112,11 +120,15 @@ const Navigation = () => {
                 }
               })}
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-fit" onClick={() => {
-            setIsMenuOpen(false);
-            document.getElementById('contact')?.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }}>
+                setIsMenuOpen(false);
+                if (window.location.pathname === '/') {
+                  document.getElementById('contact')?.scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                } else {
+                  window.location.href = '/#contact';
+                }
+              }}>
                 Get Quote
               </Button>
             </div>
