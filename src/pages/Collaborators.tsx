@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import { Link } from "react-router-dom";
 const Collaborators = () => {
   const partners = [{
     name: "Tech Solutions Inc",
@@ -79,10 +80,10 @@ const Collaborators = () => {
             <div>
               <h3 className="text-lg font-semibold text-foreground mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><a href="/" className="text-muted-foreground hover:text-primary">Home</a></li>
-                <li><a href="/#products" className="text-muted-foreground hover:text-primary">Products</a></li>
-                <li><a href="/#benefits" className="text-muted-foreground hover:text-primary">Benefits</a></li>
-                <li><a href="/#contact" className="text-muted-foreground hover:text-primary">Contact</a></li>
+                <li><Link to="/" className="text-muted-foreground hover:text-primary">Home</Link></li>
+                <li><Link to="/#products" className="text-muted-foreground hover:text-primary">Products</Link></li>
+                <li><Link to="/#benefits" className="text-muted-foreground hover:text-primary">Benefits</Link></li>
+                <li><Link to="/#contact" className="text-muted-foreground hover:text-primary">Contact</Link></li>
               </ul>
             </div>
             <div>

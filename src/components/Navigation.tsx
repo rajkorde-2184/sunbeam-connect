@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sun } from "lucide-react";
+import { Link } from "react-router-dom";
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = [{
@@ -32,16 +33,35 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map(item => <a key={item.label} href={item.href} className="text-foreground hover:text-primary transition-colors font-medium" onClick={e => {
-            if (item.href.startsWith('#')) {
-              e.preventDefault();
-              document.getElementById(item.href.slice(1))?.scrollIntoView({
-                behavior: 'smooth'
-              });
-            }
-          }}>
-                {item.label}
-              </a>)}
+            {navItems.map(item => {
+              if (item.href.startsWith('#')) {
+                return (
+                  <a 
+                    key={item.label} 
+                    href={item.href} 
+                    className="text-foreground hover:text-primary transition-colors font-medium" 
+                    onClick={e => {
+                      e.preventDefault();
+                      document.getElementById(item.href.slice(1))?.scrollIntoView({
+                        behavior: 'smooth'
+                      });
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                );
+              } else {
+                return (
+                  <Link 
+                    key={item.label} 
+                    to={item.href} 
+                    className="text-foreground hover:text-primary transition-colors font-medium"
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+            })}
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => {
             document.getElementById('contact')?.scrollIntoView({
               behavior: 'smooth'
@@ -60,17 +80,37 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && <div className="md:hidden py-4 border-t border-border/40">
             <div className="flex flex-col gap-4">
-              {navItems.map(item => <a key={item.label} href={item.href} className="text-foreground hover:text-primary transition-colors font-medium" onClick={e => {
-            setIsMenuOpen(false);
-            if (item.href.startsWith('#')) {
-              e.preventDefault();
-              document.getElementById(item.href.slice(1))?.scrollIntoView({
-                behavior: 'smooth'
-              });
-            }
-          }}>
-                  {item.label}
-                </a>)}
+              {navItems.map(item => {
+                if (item.href.startsWith('#')) {
+                  return (
+                    <a 
+                      key={item.label} 
+                      href={item.href} 
+                      className="text-foreground hover:text-primary transition-colors font-medium" 
+                      onClick={e => {
+                        setIsMenuOpen(false);
+                        e.preventDefault();
+                        document.getElementById(item.href.slice(1))?.scrollIntoView({
+                          behavior: 'smooth'
+                        });
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  );
+                } else {
+                  return (
+                    <Link 
+                      key={item.label} 
+                      to={item.href} 
+                      className="text-foreground hover:text-primary transition-colors font-medium"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+              })}
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-fit" onClick={() => {
             setIsMenuOpen(false);
             document.getElementById('contact')?.scrollIntoView({
