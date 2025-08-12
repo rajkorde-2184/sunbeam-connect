@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sun } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
   const navItems = [{
     label: "Home",
     href: "#home"
@@ -72,7 +73,12 @@ const Navigation = () => {
                     behavior: 'smooth'
                   });
                 } else {
-                  window.location.href = '/#contact';
+                  navigate('/', { replace: true });
+                  setTimeout(() => {
+                    document.getElementById('contact')?.scrollIntoView({
+                      behavior: 'smooth'
+                    });
+                  }, 100);
                 }
               }}
             >
@@ -129,7 +135,12 @@ const Navigation = () => {
                     behavior: 'smooth'
                   });
                 } else {
-                  window.location.href = '/#contact';
+                  navigate('/', { replace: true });
+                  setTimeout(() => {
+                    document.getElementById('contact')?.scrollIntoView({
+                      behavior: 'smooth'
+                    });
+                  }, 100);
                 }
               }}>
                 Get Quote
