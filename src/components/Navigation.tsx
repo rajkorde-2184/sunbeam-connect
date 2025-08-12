@@ -31,6 +31,7 @@ const Navigation = () => {
               alt="Voltex Solution Logo" 
               className="h-10 w-auto"
             />
+            <span className="text-xl font-bold text-primary">Voltex Solution</span>
           </div>
 
           {/* Desktop Navigation */}
