@@ -64,15 +64,18 @@ const Navigation = () => {
                 );
               }
             })}
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => {
-              if (window.location.pathname === '/') {
-                document.getElementById('contact')?.scrollIntoView({
-                  behavior: 'smooth'
-                });
-              } else {
-                window.location.href = '/#contact';
-              }
-            }}>
+            <Button 
+              className="bg-primary text-primary-foreground hover:bg-primary/90" 
+              onClick={() => {
+                if (window.location.pathname === '/') {
+                  document.getElementById('contact')?.scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                } else {
+                  window.location.href = '/#contact';
+                }
+              }}
+            >
               Get Quote
             </Button>
           </div>
