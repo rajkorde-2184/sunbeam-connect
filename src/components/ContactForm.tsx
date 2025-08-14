@@ -7,28 +7,24 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin } from "lucide-react";
-
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000));
-    
     toast({
       title: "Thank you for your interest!",
-      description: "We'll contact you within 24 hours with a personalized solar solution.",
+      description: "We'll contact you within 24 hours with a personalized solar solution."
     });
-    
     setIsSubmitting(false);
   };
-
-  return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+  return <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -52,7 +48,7 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <p className="font-medium">Call Us</p>
-                    <p className="text-muted-foreground">1-800-SOLAR-NOW</p>
+                    <p className="text-muted-foreground">9104629229</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -150,18 +146,10 @@ const ContactForm = () => {
                 
                 <div className="space-y-2">
                   <Label htmlFor="message">Additional Information</Label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Tell us about your energy goals, roof details, or any questions you have..."
-                    rows={4}
-                  />
+                  <Textarea id="message" placeholder="Tell us about your energy goals, roof details, or any questions you have..." rows={4} />
                 </div>
                 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                  disabled={isSubmitting}
-                >
+                <Button type="submit" className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90" disabled={isSubmitting}>
                   {isSubmitting ? "Submitting..." : "Get My Free Quote"}
                 </Button>
               </form>
@@ -169,8 +157,6 @@ const ContactForm = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactForm;
