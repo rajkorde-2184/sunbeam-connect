@@ -48,7 +48,9 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <p className="font-medium">Call Us</p>
-                    <p className="text-muted-foreground">9104629229</p>
+                    <a href="tel:9104629229" className="text-muted-foreground hover:text-primary transition-colors">
+                      9104629229
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
